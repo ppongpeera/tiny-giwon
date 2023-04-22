@@ -1,10 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './components/jsx/App'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Dashboard from './components/jsx/Dashboard';
+import Dashboard from './components/Dashboard';
+import Test from './components/Test';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(  
-  <Dashboard />
+  <React.StrictMode>
+    <Dashboard />
+    <Test />
+  </React.StrictMode>
 )
