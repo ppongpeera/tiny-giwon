@@ -2,6 +2,8 @@ import React from 'react'
 import logo from '../images/logo.png'
 import './style/Navbar.css'
 import Button from 'react-bootstrap/Button';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
 
 const Navbar = () => {
@@ -15,12 +17,11 @@ const Navbar = () => {
 
           <li class='col text-end'>
             <a href="#home">
-            <Button variant="danger">Sign out</Button>
+            <Button variant="danger">Sign out <FontAwesomeIcon icon={faArrowRightFromBracket} /></Button>
             </a>
           </li>
           
       </nav>
-    
     </header>
   )
 }
