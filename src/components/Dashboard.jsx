@@ -1,20 +1,29 @@
 import React from 'react'
 import Navbar from './Navbar'
-import UserProfile from './UserProfile';
-import GoalProgess from './GoalProgess';
 import './style/Dashboard.css'
+import UserProfile from './UserProfile'
+import GoalProgess from './GoalProgress'
 
-
-const Dashboard = () => {
+const Dashboard = ({children}) => {
   return (
-    <>
+    <div className='dashboard'>
+
       <Navbar />
 
-      <div class='col-3'>
-        <UserProfile />
-        <GoalProgess />
+      <div class='row' >
+
+        <div className="userAndGoal" class='col-3'>
+          <UserProfile  />
+          <GoalProgess  />
+        </div>
+        
+        <div className='rightContainer' class='col-9'>
+          {children}
+        </div>
+
       </div>
-    </>
+      <br></br>
+    </div>
   )
 }
 
