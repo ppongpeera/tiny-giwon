@@ -6,7 +6,23 @@ import './style/CRUD.css';
 
 const CrudCreate = () => {
 
+    const [name, setName] = useState('')
+    const [duration, setDuration] = useState(0)
+    const [type, setType] = useState()
+    const [date, setDate] = useState()
+    const [weight, setWeight] = useState(0)
+    const [text, setText] = useState('')
 
+    const saveActivity = (event) => {
+        const itemData = {
+            name: name,
+            duration: duration,
+            type: type,
+            date: date,
+            weight: weight,
+            text: text,
+        }
+    }
 
     return (
         <div className="card-container">
@@ -18,18 +34,18 @@ const CrudCreate = () => {
                     </div>
                     <div className="name">
                         <label for="name">Activity Name</label>
-                        <input type="text" className="fill"/>
+                        <input type="text" className="fill" onChange={(e) => setName(e.target.value)} />
                     </div>
                     <div className="duration">
                         <label for="duration">Activity Duration</label>
-                        <input type="number" className="fill" min="0"/>
+                        <input type="number" className="fill" min="0" onChange={(e) => setDuration(e.target.value)}/>
                     </div>
                 </div>
 
                 <div className="card-right">
                     <div className="type">
                         <label for="type">Activity Type</label>
-                        <select name="act-type" id="act-type">
+                        <select name="act-type" id="act-type" onSelect={(e) => setType(e.target.value)}>
                             <option value="Running">Running</option>
                             <option value="Swimming">Swimming</option>
                             <option value="Hiking">Hiking</option>
@@ -40,11 +56,11 @@ const CrudCreate = () => {
                     
                     <div className="date">
                         <label for="date">Date</label>
-                        <input type="date" className="fill" />    
+                        <input type="date" className="fill" onChange={(e) => setDate(e.target.value)} />    
                     </div>
                     <div className="weight">
                         <label for="weight">Your Weight (kg)</label>
-                        <input type="number" className="fill" min="0" />    
+                        <input type="number" className="fill" min="0" onChange={(e) => setWeight(e.target.value)} />    
                     </div>
                 </div>
 
@@ -52,12 +68,12 @@ const CrudCreate = () => {
 
             <div className="card-description">
                 <label for="weight">Describe your journal</label>
-                <input type="text" className="fill" />    
+                <input type="text" className="fill" onChange={(e) => setText(e.target.value)} />    
             </div>
 
             <div className="card-buttons">
                 <button className="cancel">Cancel</button>
-                <button className="add">Add</button>
+                <button className="add" onClick={saveActivity}>Add</button>
             </div>
         </div>
 
